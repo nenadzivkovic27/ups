@@ -86,9 +86,8 @@ namespace Ups.Nenad.Services
             request.AddJsonBody(user);
             var response = _restClient.Patch(request);
             var json = response.Content;
-
-            var usersResponse = JsonSerializer.Deserialize<GetUsersResponse>(json, _options);
-            toRet = usersResponse.Data.FirstOrDefault();
+            var usersResponse = JsonSerializer.Deserialize<GetUserResponse>(json, _options);
+            toRet = usersResponse.Data;
 
             return toRet;
         }

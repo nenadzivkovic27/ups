@@ -30,6 +30,7 @@ namespace Ups.Nenad.UI
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.bsUsers = new System.Windows.Forms.BindingSource(this.components);
             this.dgvEmployees = new System.Windows.Forms.DataGridView();
             this.ColId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -259,8 +260,9 @@ namespace Ups.Nenad.UI
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEditEmployee);
             this.Controls.Add(this.grpEmployees);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "UPS Employee Managment";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bsUsers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).EndInit();
