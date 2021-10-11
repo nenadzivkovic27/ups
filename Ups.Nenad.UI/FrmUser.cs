@@ -88,6 +88,19 @@ namespace Ups.Nenad.UI
                 errUser.SetError(txtUserEmail, "Email is mandatory");
                 toRet = false;
             }
+            else
+            {
+                try
+                {
+                    new System.Net.Mail.MailAddress(_currentUser.Email);
+                }
+                catch (FormatException)
+                {
+                    errUser.SetError(txtUserEmail, "Email format invalid");
+                    toRet = false;
+                }
+            }
+
             return toRet;
         }
 

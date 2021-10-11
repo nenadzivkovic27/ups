@@ -259,5 +259,31 @@ namespace Ups.Nenad.UI
                 Cursor = Cursors.Default;
             }
         }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Cursor = Cursors.WaitCursor;
+                var users = bsUsers.DataSource as List<User>;
+
+                if (users != null)
+                {
+                    string file = Utilities.ExportToCSV(users);
+                    Utilities.ShowMessage($"Successfully exported to {file}", "Export");
+                    Utilities.OpenCsv(file);
+                }
+                
+
+            }
+            catch (Exception ex)
+            {
+                _exceptionService.HandleException(ex);
+            }
+            finally
+            {
+                Cursor = Cursors.Default;
+            }
+        }
     }
 }
